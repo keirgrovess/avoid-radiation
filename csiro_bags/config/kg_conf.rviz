@@ -1,0 +1,928 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /TF1/Frames1
+        - /TF1/Tree1
+        - /TopometricGraph1
+        - /TopometricGraph1/AgentPathR21
+      Splitter Ratio: 0.5941176414489746
+    Tree Height: 998
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /Waypoint1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+      - /R1ThirdPerson1/Focal Point1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: GlobalSurfels
+  - Class: e_stop_panel/E Stop Panel
+    Name: E Stop Panel
+  - Class: executive_panel/Executive Panel
+    Name: Executive Panel
+    RobotName: r2
+  - Class: ObjectReportPanel
+    Name: ObjectReportPanel
+  - Class: GatePanel
+    GateName: PIA_hanger
+    Name: GatePanel
+    RobotName: r1
+  - Class: communication_nodes_panel/Communication_Nodes Panel
+    Name: Communication_Nodes Panel
+    RobotName: r4
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        front_left_wheel_link:
+          Value: true
+        front_right_wheel_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        r2/live_slam_base_link:
+          Value: true
+        r2/odom:
+          Value: true
+        r2/slam_base_link:
+          Value: true
+        rear_left_wheel_link:
+          Value: true
+        rear_right_wheel_link:
+          Value: true
+      Marker Scale: 2
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        map:
+          r2/odom:
+            r2/live_slam_base_link:
+              {}
+            r2/slam_base_link:
+              {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: R1Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r1/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: R2Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r2/interactive_markers/update
+      Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: R3Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r3/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: R4Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r4/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: R5Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r5/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: R6Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /r6/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: H1Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /h1/interactive_markers/update
+      Value: false
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: false
+      Name: H2Waypoint
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /h2/interactive_markers/update
+      Value: false
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/atlas_vertex_shapes
+          Name: AtlasVertexShapes
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/atlas_vertex_texts
+          Name: AtlasVertexTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /topometric_graph/agent_vertex_shapes
+          Name: AgentVertexShapes
+          Namespaces:
+            spheres: true
+          Queue Size: 100
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/agent_vertex_texts
+          Name: AgentVertexTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/artefact_vertex_shapes
+          Name: ArtefactVertexShapes
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/artefact_vertex_texts
+          Name: ArtefactVertexTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/frontier_vertex_shapes
+          Name: FrontierVertexShapes
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/frontier_vertex_texts
+          Name: FrontierVertexTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/comms_node_vertex_shapes
+          Name: CommsNodeVertexShapes
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/comms_node_vertex_texts
+          Name: CommsNodeVertexTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /topometric_graph/observable_edge_lines
+          Name: ObservableEdgeLines
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/observable_edge_texts
+          Name: ObservableEdgeTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /topometric_graph/traversable_edge_lines
+          Name: TraversableEdgeLines
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/traversable_edge_texts
+          Name: TraversableEdgeTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /topometric_graph/comms_link_edge_lines
+          Name: CommsLinkEdgeLines
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /topometric_graph/comms_link_edge_texts
+          Name: CommsLinkEdgeTexts
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: topometric_graph/agent_paths/r1
+          Name: AgentPathR1
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: topometric_graph/agent_paths/r2
+          Name: AgentPathR2
+          Namespaces:
+            lines: true
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: topometric_graph/agent_paths/r3
+          Name: AgentPathR3
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: topometric_graph/agent_paths/r4
+          Name: AgentPathR4
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: topometric_graph/agent_paths/r5
+          Name: AgentPathR5
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: topometric_graph/agent_paths/r6
+          Name: AgentPathR6
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+      Enabled: true
+      Name: TopometricGraph
+    - Alpha: 0.5
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 7.363918304443359
+        Min Value: -1.5598461627960205
+        Value: true
+      Axis: Z
+      Channel Name: id
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 1
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: GlobalSurfels
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.10000000149011612
+      Style: Points
+      Topic: /wildcat/global/map/frame_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 1
+      Class: rviz/PointStamped
+      Color: 204; 41; 204
+      Enabled: false
+      History Length: 1
+      Name: SelectedObject
+      Radius: 0.20000000298023224
+      Topic: /clicked_point
+      Unreliable: false
+      Value: false
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /darpa_gate
+      Name: DarpaGate
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: false
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 200
+      Min Color: 0; 0; 0
+      Min Intensity: 70
+      Name: ObjectManagerCloud
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 10
+      Size (m): 0.009999999776482582
+      Style: Points
+      Topic: /object_mananger_cloud
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud
+      Color: 252; 233; 79
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: ObjectManagerFiducials
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 20
+      Size (m): 0.10000000149011612
+      Style: Points
+      Topic: /object_mananger_fiducials
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /ohm_surfel_mesh
+      Name: OhmSurfelMesh
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Class: image_select/ImageSelect
+      Enabled: false
+      Image Topic: ""
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: R1Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: image_select/ImageSelect
+      Enabled: false
+      Image Topic: ""
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: R2Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: image_select/ImageSelect
+      Enabled: false
+      Image Topic: ""
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: DetectionImage
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: topic_view/TopicView
+      Enabled: false
+      Name: TopicView
+      Remaining reports:
+        Name: Remaining reports
+        Topic: /DARPA_interface/remaining_reports
+      Run clock:
+        Name: Run clock
+        Topic: /DARPA_interface/run_clock
+      Score:
+        Name: Score
+        Topic: /DARPA_interface/score
+      Show Time: true
+      Topic Count: 3
+      Value: false
+      topic_rows:
+        - name: Run clock
+          topic: /DARPA_interface/run_clock
+        - name: Score
+          topic: /DARPA_interface/score
+        - name: Remaining reports
+          topic: /DARPA_interface/remaining_reports
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: /DARPA_interface/artifact_reports
+      Name: ReportScores
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: /detected_objects
+      Name: DetectedObjects
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 0; 0; 0
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 60
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: WaypointGuiTool
+      Frame: r2/odom
+      Topic: /r2/waypoint_gui/pose_input
+    - Class: rviz/PublishPoint
+      Single click: false
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 40.36513900756836
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 10.07675552368164
+        Y: -2.575554370880127
+        Z: 0.009681404568254948
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.5597963333129883
+      Target Frame: r1/live_slam_base_link
+      Value: Orbit (rviz)
+      Yaw: 3.181596040725708
+    Saved:
+      - Class: rviz/Orbit
+        Distance: 88.01806640625
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: TopDownMap
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697963237762451
+        Target Frame: map
+        Value: Orbit (rviz)
+        Yaw: 3.1415927410125732
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.005934289190918207
+          Y: 0.011382102966308594
+          Z: -0.0004022684588562697
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R1TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697605609893799
+        Target Frame: r1/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: -3.141592502593994
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R1ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: r1/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R2TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697963237762451
+        Target Frame: r2/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: 3.141590118408203
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R2ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: r2/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R4TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697605609893799
+        Target Frame: r4/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: -3.141592502593994
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R4ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: r4/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R5ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: r5/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.7826071977615356
+          Y: 0.10206180810928345
+          Z: -0.3788983225822449
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R5TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697605609893799
+        Target Frame: r5/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: -3.141592502593994
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: true
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R6TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697605609893799
+        Target Frame: r6/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: -3.141592502593994
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: R6ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: r6/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: H1TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697963237762451
+        Target Frame: h1/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: 3.141590118408203
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.020563147962093353
+          Y: 0.008909479714930058
+          Z: 0.006793215870857239
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: H1ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: h1/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+      - Class: rviz/Orbit
+        Distance: 40
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0
+          Y: 0
+          Z: 0
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: H2TopDown
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 1.5697963237762451
+        Target Frame: h2/live_slam_base_link
+        Value: Orbit (rviz)
+        Yaw: 3.141590118408203
+      - Class: rviz/ThirdPersonFollower
+        Distance: 1.469738483428955
+        Enable Stereo Rendering:
+          Stereo Eye Separation: 0.05999999865889549
+          Stereo Focal Distance: 1
+          Swap Stereo Eyes: false
+          Value: false
+        Focal Point:
+          X: 0.020563147962093353
+          Y: 0.008909479714930058
+          Z: 0.006793215870857239
+        Focal Shape Fixed Size: false
+        Focal Shape Size: 0.05000000074505806
+        Invert Z Axis: false
+        Name: H2ThirdPerson
+        Near Clip Distance: 0.009999999776482582
+        Pitch: 0.13039825856685638
+        Target Frame: h2/live_slam_base_link
+        Value: ThirdPersonFollower (rviz)
+        Yaw: 3.1585769653320312
+Window Geometry:
+  Communication_Nodes Panel:
+    collapsed: false
+  DetectionImage:
+    collapsed: false
+  Displays:
+    collapsed: false
+  E Stop Panel:
+    collapsed: false
+  Executive Panel:
+    collapsed: false
+  GatePanel:
+    collapsed: false
+  Height: 1241
+  Hide Left Dock: false
+  Hide Right Dock: false
+  ObjectReportPanel:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000018200000440fc020000000efb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb000000280045007800650063007500740069007600650020004e006f00640065002000500061006e0065006c00000003970000014c0000000000000000fb0000002e0057006100790070006f0069006e0074002000500061007400680020004700550049002000500061006e0065006c0000000040000000df0000000000000000fc0000003d000004400000000000fffffffaffffffff0100000003fb000000320043006f006d006d0075006e00690063006100740069006f006e005f004e006f006400650073002000500061006e0065006c0000000000ffffffff000000fb00fffffffb00000012004700610074006500500061006e0065006c0000000000ffffffff0000012600fffffffb0000001e004500780065006300750074006900760065002000500061006e0065006c0000000000000001820000015600fffffffb0000002e0057006100790070006f0069006e0074002000500061007400680020004700550049002000500061006e0065006c00000001ce000000b80000000000000000fb000000180045002000530074006f0070002000500061006e0065006c0000000483000000f2000000f000fffffffb0000001e004500780065006300750074006900760065002000500061006e0065006c000000046f000001930000000000000000fb0000001e004500780065006300750074006900760065002000500061006e0065006c000000047d0000018b0000000000000000fb000000120054006f007000690063005600690065007700000004d90000004f0000004900ffffff00000001000001e500000440fc0200000009fb0000000e004800310049006d0061006700650100000208000000e00000000000000000fb0000000e005200320049006d006100670065000000003d000001870000001600fffffffb0000000e005200310049006d006100670065000000003d0000024f0000001600fffffffb0000001c0044006500740065006300740069006f006e0049006d0061006700650000000298000001370000001600fffffffb00000022004f0062006a006500630074005200650070006f0072007400500061006e0065006c000000003d000000d30000004100fffffffb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000032e000000b00000005c00fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fc0000003d00000440000000e60100001cfa000000000100000002fb000000100044006900730070006c0061007900730100000000ffffffff0000015600fffffffb0000000a005600690065007700730100000bd7000002e60000010000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000078000000039fc0100000002fb0000000800540069006d0065010000000000000780000002eb00fffffffb0000000800540069006d00650100000000000004500000000000000000000005950000044000000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  R1Image:
+    collapsed: false
+  R2Image:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  TopicView:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1920
+  X: 2341
+  Y: 196

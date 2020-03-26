@@ -1,0 +1,191 @@
+<!-- -*- xml -*- -->
+
+<launch>
+
+  <!-- Arguments -->
+
+  <!-- Scoring server -->
+  <arg name="darpa_interface_enabled" default="false"/>
+  <arg name="darpa_interface_url" default="http://10.100.2.200:8000/"/>
+  <arg name="darpa_interface_token" default="tAqezb93WtuVrGh9"/>
+  <arg name="darpa_interface_load_artifacts" default="false"/>
+  <arg name="darpa_interface_load_artifacts_file" default=""/>
+  <arg name="darpa_mapping_interface_url" default="http://10.100.2.201:8000/"/>
+
+  <!-- Where to log to? -->
+  <arg name="output" default="screen"/>
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}] [${node}]: ${message}"/>
+
+  <!-- Agents -->
+  <arg name="r1_debug_gui" default="false"/>
+  <arg name="r2_debug_gui" default="false"/>
+  <arg name="r3_debug_gui" default="false"/>
+  <arg name="r4_debug_gui" default="false"/>
+  <arg name="r5_debug_gui" default="false"/>
+  <arg name="r6_debug_gui" default="false"/>
+  <arg name="h1_debug_gui" default="false"/>
+  <arg name="h2_debug_gui" default="false"/>
+
+  <!-- Multimaster mode - was true -->
+  <arg name="multimaster" default="true"/>
+
+  <!-- Record key topics on the base station -->
+  <arg name="record_run" default="false"/>
+
+  <!-- Ask for a description of the run after exit? -->
+  <arg name="run_description" default="false"/>
+
+  <!-- Open Rviz with nav GUI? -->
+  <arg name="rviz_nav" default="true"/>
+
+  <!-- Is in a simulation? -->
+  <arg name="simulation" default="false"/>
+
+  <!-- Comms node IP -->
+  <arg name="comms_host" default="192.168.2.211"/>
+
+  <!-- Start Mule for multimaster comms -->
+  <include file="$(find subt_launch)/launch/mule.launch" if="$(arg multimaster)">
+    <arg name="role" value="base"/>
+    <arg name="simulation" value="$(arg simulation)"/>
+    <arg name="output" value="$(arg output)"/>
+  </include>
+
+  <!-- Start global wildcat -->
+  <node name="wildcat_map" pkg="wildcat" type="pipeline" output="$(arg output)" args="-p $(find subt_launch)/config/wildcat/global.yaml -n onlineGlobal --spin_rate 100"/>
+
+  <!-- Meshing node for meshing the global surfels -->
+  <node name="surfel_meshing" pkg="ohm_surfel_meshing" type="ohm_surfel_meshing" args="--resolution=0.4" respawn="true" output="$(arg output)"/>
+
+  <!-- Multi-Agent Robot Interface -->
+  <node name="multi_agent_interface" pkg="subt_launch" type="multi_agent_interface.py" output="$(arg output)">
+    <rosparam command="load" file="$(find subt_launch)/config/agents.yaml"/>
+  </node>
+
+  <!-- Rviz -->
+  <node name="rviz_nav" pkg="rviz" type="rviz" if="$(arg rviz_nav)" respawn="true" args="-d $(find subt_launch)/config/multi_agent_gui.rviz" output="$(arg output)">
+    <rosparam command="load" file="$(find executive_panel)/config/executive_panel.yaml"/>
+    <rosparam command="load" file="$(find subt_launch)/config/agents.yaml"/>
+    <rosparam command="load" file="$(find subt_launch)/config/images.yaml"/>
+    <rosparam command="load" file="$(find subt_launch)/config/object_manager.yaml"/>
+  </node>
+
+  <!-- Object manager for selecting the artifacts to report -->
+  <node name="object_manager" pkg="object_manager" type="object_manager" output="$(arg output)">
+    <rosparam command="load" file="$(find subt_launch)/config/agents.yaml"/>
+    <rosparam command="load" file="$(find subt_launch)/config/object_manager.yaml"/>
+  </node>
+
+  <!-- Rajant reporter node -->
+  <group if="$(eval not arg('simulation'))">
+    <node name="rajant_reporter" pkg="rajant_reporter" type="operator_rajant_reporter_node.py" output="$(arg output)">
+      <rosparam command="load" file="$(find subt_launch)/config/comms_nodes.yaml"/>
+    </node>
+  </group>
+  <group if="$(eval arg('simulation'))">
+    <node name="rajant_reporter" pkg="rajant_reporter" type="sim_operator_rajant_reporter_node.py" output="$(arg output)">
+      <rosparam command="load" file="$(find subt_launch)/config/comms_nodes.yaml"/>
+    </node>
+
+  </group>
+
+  <!-- Global nav visualisation -->
+  <node name="topometric_map_node" pkg="topometric_map_node" type="topometric_map_node" output="$(arg output)">
+    <rosparam command="load" file="$(find topometric_map_node)/config/graph_markers.yaml" ns="graph_markers"/>
+    <param name="atlas/namespace" value="/slam/map"/>
+    <rosparam command="load" file="$(find subt_launch)/config/topological_navigation/multi_agent.yaml" ns="agents"/>
+    <param name="artefacts_subs_enabled" value="true"/>
+    <param name="frontiers_subs_enabled" value="true"/>
+    <param name="comms_subs_enabled" value="true"/>
+    <param name="comms_node_list_topic" value="/comms_node_links"/>
+    <param name="frontiers_topic" value="/global_frontiers"/>
+    <rosparam command="load" file="$(find subt_launch)/config/comms_nodes.yaml" ns="comms_nodes"/>
+  </node>
+
+  <!-- Per agent global components -->
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r1_debug_gui)"/>
+    <arg name="name" value="r1"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r2_debug_gui)"/>
+    <arg name="name" value="r2"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r3_debug_gui)"/>
+    <arg name="name" value="r3"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r4_debug_gui)"/>
+    <arg name="name" value="r4"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r5_debug_gui)"/>
+    <arg name="name" value="r5"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg r6_debug_gui)"/>
+    <arg name="name" value="r6"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg h1_debug_gui)"/>
+    <arg name="name" value="h1"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <include file="$(find subt_launch)/launch/global_agent.launch">
+    <arg name="debug_gui" default="$(arg h2_debug_gui)"/>
+    <arg name="name" value="h2"/>
+    <arg name="output" default="$(arg output)"/>
+  </include>
+
+  <!-- HTTP REST interface to DARPA for scoring -->
+  <group if="$(arg darpa_interface_enabled)">
+    <node name="DARPA_interface" pkg="subt_launch" type="DARPA_interface.py" output="screen" respawn="true">
+      <param name="api_url" value="$(arg darpa_interface_url)"/>
+      <param name="token" value="$(arg darpa_interface_token)"/>
+    </node>
+
+    <!-- Relay node provided by DARPA -->
+    <node name="DARPA_mapping_relay" pkg="mapping_relay" type="mapping_relay.py" output="log" respawn="true">
+      <param name="token" value="$(arg darpa_interface_token)" />
+      <param name="map_url" value="$(arg darpa_mapping_interface_url)map/update" />
+      <param name="state_url" value="$(arg darpa_mapping_interface_url)state/update"/>
+      <param name="marker_url" value="$(arg darpa_mapping_interface_url)markers/update"/>
+
+      <!-- Remap topics so that they don't distract from other things -->
+      <remap from="/tf_static" to="DARPA_mapping_relay/tf_static"/>
+      <remap from="/tf" to="DARPA_mapping_relay/tf"/>
+      <remap from="cloud" to="DARPA_mapping_relay/cloud" />
+      <remap from="grid" to="DARPA_mapping_relay/grid" />
+      <remap from="marker_array" to="DARPA_mapping_relay/marker_array"/>
+      <remap from="poses" to="DARPA_mapping_relay/poses"/>
+    </node>
+  </group>
+
+  <group if="$(arg record_run)">
+    <node pkg="ras_ros" type="record" name="ras_record_operations" output="$(arg output)">
+      <rosparam command="load" subst_value="true" file="$(find subt_launch)/config/record/record_operations.yaml"/>
+    </node>
+  </group>
+
+  <!-- Prompts for description of run on close, maintains meta.txt on darpa-base -->
+  <group if="$(arg run_description)">
+    <node pkg="ras_ros" type="run_description.py" name="run_description" output="screen">
+    </node>
+  </group>
+
+</launch>
