@@ -1,0 +1,22 @@
+<!-- -*- xml -*- -->
+
+<launch>
+
+  <!--env name="ROSCONSOLE_FORMAT" value="[${severity}] [${node}]: ${message}"/-->
+  
+  <arg name="robot_name" default="r2"/>
+
+  <!-- play rosbag -->
+  <node pkg="rosbag" type="play" name="player" output="screen" args="--clock /home/keir/Dropbox\ (The\ University\ of\ Manchester)/secondment/secondment_data/t10_0402_1745/2020-02-04-17-28-11.bag "/>
+  
+  <!-- RVIZ local nav -->
+  <node ns="r2" name="local_nav_rviz" pkg="rviz" type="rviz" args="-d $(find csiro_bags)/config/local_nav_kg.rviz" output="screen">
+    <remap from="/tf" to="/r2/tf"/>
+    <remap from="/tf_static" to="/r2/tf_static"/>
+  </node>
+
+  <!-- Autonomy RVIZ -->
+  <node name="global_nav" pkg="rviz" type="rviz" args="-d $(find csiro_bags)/config/kg_conf.rviz" output="screen">
+  </node>
+  
+</launch>
